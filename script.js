@@ -67,19 +67,17 @@ contactForm.addEventListener('submit', function(e) {
     
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
     const message = document.getElementById('message').value;
     
     // Create mailto link with form data
-    const subject = encodeURIComponent('New Contact Form Submission - ' + name);
+    const subject = encodeURIComponent('Business Enquiry – PVGroups Consultancy Service');
     const body = encodeURIComponent(
         `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Phone: ${phone}\n\n` +
+        `Email: ${email}\n\n` +
         `Message:\n${message}`
     );
     
-    const mailtoLink = `mailto:info@pvgroups.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:pvgroupsconsultancyservice@outlook.com?subject=${subject}&body=${body}`;
     
     // Open default email client
     window.location.href = mailtoLink;
