@@ -114,7 +114,10 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: var(--spacing-sm);
     position: relative;
     padding-left: 3rem;
@@ -127,8 +130,9 @@ p {
     top: 50%;
     transform: translateY(-50%);
     width: 2.5rem;
-    height: 2px;
-    background: var(--accent);
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-dark) 0%, var(--accent) 100%);
+    border-radius: 2px;
 }
 
 .section-header {
@@ -152,20 +156,20 @@ p {
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(15px);
-    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 20px rgba(100, 255, 218, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
     z-index: 1000;
     transition: var(--transition-normal);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    min-height: 70px;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    min-height: 80px;
 }
 
 .nav-brand {
@@ -176,15 +180,17 @@ p {
 }
 
 .logo-image {
-    height: 55px; /* Reduced and fixed for better alignment */
+    height: 70px; /* Increased for better visibility */
     width: auto;
     object-fit: contain;
     display: block;
     transition: var(--transition-fast);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .logo-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: drop-shadow(0 4px 8px rgba(100, 255, 218, 0.3));
 }
 
 .logo {
@@ -294,8 +300,18 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #e0f2fe 0%, #ddd6fe 50%, #fce7f3 100%);
+    background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 25%, #f3e8ff 50%, #fce7f3 75%, #ffe4e6 100%);
     z-index: -1;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-background::before {
@@ -460,7 +476,18 @@ p {
 
 .about {
     padding: var(--spacing-xl) 0;
-    background: var(--background);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-dark) 50%, transparent 100%);
 }
 
 .about-content {
@@ -531,7 +558,18 @@ p {
 
 .services {
     padding: var(--spacing-xl) 0;
-    background: var(--background-alt);
+    background: linear-gradient(180deg, #f8fafc 0%, #f0f9ff 50%, #faf5ff 100%);
+    position: relative;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(100, 255, 218, 0.3) 50%, transparent 100%);
 }
 
 .services-grid {
@@ -620,7 +658,18 @@ p {
 
 .why-us {
     padding: var(--spacing-xl) 0;
-    background: var(--background);
+    background: linear-gradient(180deg, #ffffff 0%, #fefce8 50%, #ffffff 100%);
+    position: relative;
+}
+
+.why-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(100, 255, 218, 0.4) 50%, transparent 100%);
 }
 
 .why-grid {
@@ -699,7 +748,19 @@ p {
 
 .technologies {
     padding: var(--spacing-xl) 0;
-    background: var(--background-alt);
+    background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+    position: relative;
+}
+
+.technologies::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+    opacity: 0.5;
 }
 
 .tech-categories {
@@ -765,7 +826,18 @@ p {
 
 .contact {
     padding: var(--spacing-xl) 0;
-    background: var(--background);
+    background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 50%, #ecfeff 100%);
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-dark) 20%, var(--accent) 50%, var(--accent-dark) 80%, transparent 100%);
 }
 
 .contact-content {
@@ -1047,16 +1119,31 @@ p {
     }
 
     html {
-        font-size: 14px; /* Slightly reduced for smaller screens */
+        font-size: 15px; /* Maintained for better readability */
     }
 
     .hero {
-        min-height: 85vh;
+        min-height: 90vh;
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
     }
 
     .hero-cta {
         flex-direction: column;
         align-items: stretch;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 
     .services-grid,
@@ -1070,34 +1157,74 @@ p {
     }
 
     .navbar .container {
-        min-height: 65px;
+        min-height: 75px;
+    }
+
+    .logo-image {
+        height: 65px;
+    }
+
+    .section-label {
+        font-size: 0.8rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 var(--spacing-sm);
+        padding: 0 1.25rem;
     }
 
     .logo-image {
-        height: 45px;
+        height: 60px; /* Increased from 45px for much better mobile visibility */
     }
 
     .footer-logo {
-        height: 55px;
+        height: 60px;
+    }
+
+    .navbar .container {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        min-height: 72px;
+    }
+
+    .hero {
+        padding-top: 90px;
     }
 
     .section-label {
         padding-left: 2rem;
         font-size: 0.75rem;
+        letter-spacing: 1.5px;
     }
 
     .section-label::before {
         width: 1.5rem;
+        height: 2px;
     }
 
     .btn {
-        padding: 0.75rem 1.75rem;
-        font-size: 0.9rem;
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+
+    .stat-card {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .stat-number {
+        font-size: 2.25rem;
+    }
+
+    .service-card,
+    .why-card,
+    .tech-category {
+        padding: var(--spacing-md);
+        border-radius: 12px;
     }
 }
